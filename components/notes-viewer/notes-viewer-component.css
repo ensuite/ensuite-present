@@ -1,0 +1,26 @@
+.notes-wrapper {
+  color: #555;
+  font-family: monospace;
+  line-height: 1.5;
+  overflow: auto;
+  word-break: break-word;
+}
+
+.notes-block {
+  padding: 0.75em;
+}
+
+.notes-block:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.notes-block.current-block {
+  color: #000;
+  background-color: #eee;
+}
+
+.notes-line {
+  padding-left: 1em;
+  text-indent: -1em;
+}

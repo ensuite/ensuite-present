@@ -1,0 +1,22 @@
+html {
+  font-family: monospace;
+}
+
+.pageList {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2px;
+}
+
+.pageItem {
+  background-color: #eee;
+  font-size: 20px;
+  margin: 4px;
+  padding: 10px;
+  text-align: center;
+}
+
+.pageItem.pageItem--current {
+  background-color: #555;
+  color: #fff;
+}

@@ -1,0 +1,25 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+.multi {
+  align-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.slideViewer-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.multi .slideViewer-wrapper {
+  height: calc(100vh / var(--multi));
+  width: calc(100vw / var(--multi));
+}

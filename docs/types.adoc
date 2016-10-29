@@ -1,0 +1,127 @@
+= Design doc
+
+== Types
+
+[source]
+----
+dictionary SlideDeckDetails {
+    // Title of the talk
+    USVString title;
+
+    // Name of the author(s) of the talk
+    USVString authors;
+
+    // A description of the talk
+    USVString description;
+
+    // The name of the presentation framework (bespokejs, revealjs, dzslides...)
+    USVString vendor;
+
+    // A recursive list of ordered "addressable" steps with their details
+    sequence<StepDescriptor> steps;
+
+    // '16/9', '4/3' and 'auto'...
+    sequence<USVString> ratios;
+
+    // Theme names like "default", "low-contrast-projector"...
+    sequence<USVString> themes;
+}
+
+dictionary StepDescriptor {
+    // The "address" of the step usable with the `GO_TO` command
+    USVString cursor;
+
+    // A given step of the talk can have many states like playing a video/audio or zooming a picture
+    sequence<USVString> states;
+
+    // HTML notes
+    USVString notes;
+}
+----
+
+== Commands from Console => slide deck
+
+[source]
+----
+interface SlideDeck {
+
+    // Ask for details about the slide deck
+    void getSlideDeckDetails();
+
+    // go to a specific step of the slide deck using its cursor
+    void goTo(GoToOptions options);
+
+    dictionary GoToOptions {
+        // The cursor of the step the slide deck needs to go to
+        USVString cursor;
+
+        // Ability to shift the slide deck step position
+        // default value : 0
+        optional integer shift;
+    }
+
+    // Toggle on of the states of the current step
+    void toggleState(ToggleStateOptions options);
+
+    dictionary ToggleStateOptions {
+        // The name of the state you want to toggle
+        USVString state;
+        // The "state" of the state
+        optional boolean enabled;
+    }
+
+    // Set the ratio of the slide deck
+    void setRatio(SetRatioOptions options);
+
+    dictionary SetRatioOptions {
+        // The ratio the slide deck needs to fit in
+        USVString ratio;
+    }
+
+    // Set the theme of the slide deck
+    void setTheme(SetThemeOptions options);
+
+    dictionary SetThemeOptions {
+        // The theme to set on the slide deck
+        USVString theme;
+    }
+}
+----
+
+== Commands from slide deck => console
+
+[source]
+----
+interface SlideDeckConsole {
+    // Give back the slide deck details
+    void setSlideDeckDetails(SetSlideDeckDetailsOptions options);
+}
+
+dictionary SetSlideDeckDetailsOptions {
+    // Details of the slide deck
+    SlideDeckDetails details;
+}
+----
+
+== Commands from console => console
+
+[source]
+----
+interface Console {
+    // Give back the slide deck details
+    void setSlideDeckDetails(SetSlideDeckDetailsOptions options);
+}
+
+dictionary SetSlideDeckDetailsOptions {
+    // Details of the slide deck
+    SlideDeckDetails details;
+}
+----
+
+=== Questions
+
+How do we open a given slide deck?
+How do we handle secret slide?
+How do we handle disabling transitions and animations?
+
+== The console ecosystem

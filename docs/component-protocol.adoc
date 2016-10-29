@@ -1,0 +1,60 @@
+= Component protocol
+
+The protocol used between components of this ecosystem to sync and communicate.
+
+== Commands a slide-deck-viewer can receive (from other components) :
+
+load-slide-deck
+    string url
+    string initCursor
+get-slide-deck-details
+
+go-to-step
+    string cursor
+    integer shift
+    boolean secret
+
+go-to-next-step
+go-to-previous-step
+go-to-first-step
+go-to-last-step
+
+toggle-slide-deck-state
+    USVString state
+    optional boolean enabled
+set-slide-deck-ratio
+    string ratio
+set-slide-deck-theme
+    string theme
+
+toggle-test-card
+    optional boolean enabled
+
+== Commands a notes-viewer can receive (from other components) :
+
+go-to-step
+    string cursor
+    integer shift
+    boolean secret
+
+go-to-next-step
+go-to-previous-step
+go-to-first-step
+go-to-last-step
+
+move-notes
+    amount (px)
+
+== Commands a stopwatch can receive (from other components) :
+
+toggle-stopwatch
+    boolean running
+reset-stopwatch
+
+== Commands a timer can receive (from other components) :
+
+toggle-timer
+    boolean running
+reset-timer
+update-timer
+    amount
