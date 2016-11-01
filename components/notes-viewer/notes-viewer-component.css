@@ -21,6 +21,6 @@
 }
 
 .notes-line {
-  padding-left: 1em;
-  text-indent: -1em;
+  padding-left: 2ch;
+  text-indent: -2ch;
 }
