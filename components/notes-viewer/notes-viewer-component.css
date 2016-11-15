@@ -1,7 +1,7 @@
 .notes-wrapper {
-  color: #555;
+  color: #000;
   font-family: monospace;
-  line-height: 1.5;
+  line-height: 1.6;
   overflow: auto;
   word-break: break-word;
 }
@@ -16,8 +16,7 @@
 }
 
 .notes-block.current-block {
-  color: #000;
-  background-color: #eee;
+  background-color: #ff9;
 }
 
 .notes-line {
