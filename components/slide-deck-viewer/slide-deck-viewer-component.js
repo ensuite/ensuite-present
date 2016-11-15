@@ -163,9 +163,9 @@
 
       const shiftedStepIndex = newStepIndex + shift
       const shiftedStep = flattenSteps[shiftedStepIndex]
-      const isOverTheEnd = (shiftedStepIndex >= flattenSteps.length)
+      const isOutOfBounds = (shiftedStepIndex < 0) || (shiftedStepIndex >= flattenSteps.length)
 
-      wrapper.classList.toggle('slideViewer-wrapper--overTheEnd', isOverTheEnd)
+      wrapper.classList.toggle('slideViewer-wrapper--overTheEnd', isOutOfBounds)
 
       // don't send "go-to-step" if step cannot be found
       if (!shiftedStep) {
