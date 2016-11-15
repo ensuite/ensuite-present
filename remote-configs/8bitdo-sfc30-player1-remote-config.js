@@ -22,11 +22,11 @@
       commandArgs: { secret: true },
     },
     'down(KeyN)': {
-      command: 'reset-stopwatch',
+      command: ['reset-stopwatch', 'reset-timer'],
       commandArgs: {},
     },
     'down(KeyO)': {
-      command: 'toggle-stopwatch',
+      command: ['toggle-stopwatch', 'toggle-timer'],
       commandArgs: {},
     },
     'down(KeyC)': {
