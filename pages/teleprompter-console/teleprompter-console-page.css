@@ -32,7 +32,6 @@ body[data-slide-ratio="4/3"] {
 }
 
 .slideViewer-wrapper[data-shift="1"] {
-  border-top: 2px solid #000;
   top: var(--viewer-height);
 }
 
@@ -52,7 +51,6 @@ body[data-slide-ratio="4/3"] .slideViewer-wrapper.fullscreen {
 
 .notes-wrapper {
   background-color: #fff;
-  border-left: 2px solid #000;
   bottom: var(--footer-height);
   font-size: 30px;
   left: var(--viewer-width);
@@ -63,11 +61,11 @@ body[data-slide-ratio="4/3"] .slideViewer-wrapper.fullscreen {
 
 .footer {
   align-items: center;
-  background-color: #ddd;
-  border-top: 2px solid #000;
+  background-color: #000;
+  color: #fff;
   bottom: 0;
   display: flex;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bold;
   justify-content: space-around;
   position: absolute;
