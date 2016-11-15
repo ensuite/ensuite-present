@@ -17,13 +17,13 @@
       command: 'reset-stopwatch',
       commandArgs: {},
     },
-    'down(F5)': {
-      command: 'reset-stopwatch',
-      commandArgs: {},
-    },
     'down(Period)': {
-      command: 'toggle-stopwatch',
-      commandArgs: {},
+      command: 'toggle-slide-deck-state',
+      commandArgs: { state: 'one', enabled: true },
+    },
+    'up(Period)': {
+      command: 'toggle-slide-deck-state',
+      commandArgs: { state: 'one', enabled: false },
     },
   }
 })()
