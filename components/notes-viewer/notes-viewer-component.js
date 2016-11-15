@@ -102,12 +102,25 @@
           wrapper.scrollTop += commandArgs.amount
           break
 
+        case 'set-slide-deck-ratio':
+          fixScrollPosition()
+          break
+
         default:
           if (command != null) {
             console.debug('unknown protocol command', command, 'with args', commandArgs)
           }
       }
     })
+
+    // hack to keep scroll position on
+    function fixScrollPosition() {
+      setTimeout(() => {
+        goToStep({ cursor: lastKnownState.cursor })
+      }, 10)
+    }
+
+    window.addEventListener('resize', fixScrollPosition)
 
     function transformNotesToHtml(steps) {
 
