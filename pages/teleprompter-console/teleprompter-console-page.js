@@ -18,6 +18,22 @@
   const componentsChannel = new BroadcastChannel(`COMPONENTS_CHANNEL(${bus})`)
   componentsChannel.postMessage({ command:'load-slide-deck', commandArgs: { url: slideDeckUrl } })
 
+  componentsChannel.addEventListener('message', ({ data: { command, commandArgs } }) => {
+
+    switch (command) {
+
+      case 'set-slide-deck-ratio':
+        const { ratio } = commandArgs
+        document.body.dataset.slideRatio = ratio
+        break
+
+      default:
+        if (command != null) {
+          console.debug('unknown protocol command', command, 'with args', commandArgs)
+        }
+    }
+  })
+
   // const deckChannel = new BroadcastChannel('SLIDE_DECK')
   // const consoleChannel = new BroadcastChannel('SPEAKER_CONSOLE')
   // let currentIdx = 0

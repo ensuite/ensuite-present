@@ -61,5 +61,17 @@
       command: 'move-notes',
       commandArgs: { amount: 90 },
     },
+    'down(Digit0)': {
+      command: 'set-slide-deck-ratio',
+      commandArgs: { ratio: 'auto' },
+    },
+    'down(Digit4)': {
+      command: 'set-slide-deck-ratio',
+      commandArgs: { ratio: '4/3' },
+    },
+    'down(Digit6)': {
+      command: 'set-slide-deck-ratio',
+      commandArgs: { ratio: '16/9' },
+    },
   }
 })()
