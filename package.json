@@ -3,6 +3,7 @@
     "start": "static -H '{\"Cache-Control\": \"no-cache, no-store, must-revalidate\", \"Pragma\": \"no-cache\", \"Expires\": \"0\"}' -p 8082"
   },
   "dependencies": {
-    "node-static": "^0.7.9"
+    "node-static": "^0.7.9",
+    "socket.io": "^1.6.0"
   }
 }

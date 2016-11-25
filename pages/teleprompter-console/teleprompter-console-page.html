@@ -36,6 +36,7 @@
   </div>
 </div>
 
+<script src="/node_modules/socket.io-client/socket.io.min.js"></script>
 <script src="/components/slide-deck-viewer/slide-deck-viewer-component.js"></script>
 <script src="/components/clock/clock-component.js"></script>
 <script src="/components/stopwatch/stopwatch-component.js"></script>
@@ -47,6 +48,17 @@
 <script src="/remote-configs/logitech-r400-remote-config.js"></script>
 <script src="/components/remote/remote-component.js"></script>
 <script src="teleprompter-console-page.js"></script>
+<script>
+
+  const bc = new BroadcastChannel(`COMPONENTS_CHANNEL(default)`)
+
+  var socket = io('http://localhost:9999');
+  socket.on('TWO', function (data) {
+    console.log(data)
+    bc.postMessage(data)
+  });
+
+</script>
 
 </body>
 </html>
