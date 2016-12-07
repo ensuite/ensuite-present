@@ -62,6 +62,7 @@
 
         case 'slide-deck-details':
           details = eventData.details
+          console.log(details)
           flattenSteps = flatten(details.steps)
           goToStep({ cursor: (initCursor || (flattenSteps[0].cursor)) })
           componentsChannel.postMessage({ event, eventData })

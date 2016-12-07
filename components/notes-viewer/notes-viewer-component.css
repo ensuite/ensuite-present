@@ -23,3 +23,25 @@
   padding-left: 2ch;
   text-indent: -2ch;
 }
+
+.notes-block p,
+.notes-block ul,
+.notes-block ol {
+  margin: 0;
+}
+
+.notes-block mark {
+  background-color: #000;
+  border-radius: 5px;
+  color: #ff9;
+  padding: 5px;
+}
+
+/*.notes-line:empty::after {*/
+  /*font-style: italic;
+  text-align: center;
+}*/
+
+/*.notes-line:empty::after {*/
+  /*content: '...';*/
+/*}*/

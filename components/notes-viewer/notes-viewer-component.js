@@ -127,10 +127,10 @@
       return steps
         .map(({ cursor, notes }) => {
 
-          const blocks = notes
-            .split('\n')
-            .map((line) => `<div class="notes-line">${line}</div>`)
-            .join('')
+          const blocks = (notes || '').trim()
+            // .split('\n')
+            // .map((line) => `<div class="notes-line">${line}</div>`)
+            // .join('')
 
           return `<div class="notes-block" data-slide-idx="${cursor}">${blocks}</div>`
         })
