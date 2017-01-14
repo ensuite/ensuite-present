@@ -1,3 +1,19 @@
 = WIP presentation tools
 
 This project is a Work In Progress
+
+Run this in a shell :
+
+[source]
+----
+npm install
+npm run
+----
+
+You'll be able to browse the teleprompter console here (where `http://localhost:8080` is the URL of your slides) :
+
+http://localhost:8082/pages/teleprompter-console/teleprompter-console-page.html?slide-deck-url=http://localhost:8080
+
+And the projector page will be available here :
+
+http://localhost:8082/pages/slide-deck-viewer/slide-deck-viewer-page.html

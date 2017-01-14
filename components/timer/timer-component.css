@@ -1,0 +1,7 @@
+.timer-wrapper {
+  font-family: monospace;
+}
+
+.timer-wrapper.timer-wrapper--over {
+  color: #F00;
+}

@@ -1,0 +1,51 @@
+.notes-wrapper {
+  color: #000;
+  font-family: monospace;
+  line-height: 1.6;
+  overflow: auto;
+  word-break: break-word;
+}
+
+.notes-block {
+  padding: 0.75em;
+}
+
+.notes-block:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.notes-block.current-block {
+  background-color: #ff9;
+}
+
+.notes-line {
+  padding-left: 2ch;
+  text-indent: -2ch;
+}
+
+.notes-block p,
+.notes-block ul,
+.notes-block ol {
+  margin: 0;
+}
+
+.notes-block p {
+  white-space: pre-wrap;
+}
+
+.notes-block mark {
+  background-color: #000;
+  border-radius: 5px;
+  color: #ff9;
+  padding: 5px;
+}
+
+/*.notes-line:empty::after {*/
+  /*font-style: italic;
+  text-align: center;
+}*/
+
+/*.notes-line:empty::after {*/
+  /*content: '...';*/
+/*}*/

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>speaker-console</title>
+    <link rel="stylesheet" href="/components/slide-deck-viewer/slide-deck-viewer-component.css">
+    <link rel="stylesheet" href="/components/clock/clock-component.css">
+    <link rel="stylesheet" href="/components/stopwatch/stopwatch-component.css">
+    <link rel="stylesheet" href="/components/timer/timer-component.css">
+    <link rel="stylesheet" href="/components/notes-viewer/notes-viewer-component.css">
+    <link rel="stylesheet" href="teleprompter-console-page.css">
+</head>
+<body data-slide-ratio="4/3">
+
+<div class="slideViewer-wrapper" data-shift="0" data-bus="default" data-secret="true">
+  <iframe class="slideViewer" src="about:blank"></iframe>
+</div>
+<div class="slideViewer-wrapper" data-shift="1" data-bus="default" data-secret="true">
+  <iframe class="slideViewer" src="about:blank"></iframe>
+</div>
+
+<div class="notes-wrapper">
+  <div class="notes-body"></div>
+</div>
+
+<div class="footer">
+  <div class="clock-wrapper">
+    <span class="hours">??</span>:<span class="minutes">??</span>:<span class="seconds">??</span>
+  </div>
+  <div class="stopwatch-wrapper">
+    <span class="hours">??</span>:<span class="minutes">??</span>:<span class="seconds">??</span>
+  </div>
+  <div class="timer-wrapper">
+    <span class="plusMinus"></span><span class="hours">??</span>:<span class="minutes">??</span>:<span class="seconds">??</span>
+  </div>
+</div>
+
+<script src="/node_modules/socket.io-client/socket.io.min.js"></script>
+<script src="/components/slide-deck-viewer/slide-deck-viewer-component.js"></script>
+<script src="/components/clock/clock-component.js"></script>
+<script src="/components/stopwatch/stopwatch-component.js"></script>
+<script src="/components/timer/timer-component.js"></script>
+<script src="/components/notes-viewer/notes-viewer-component.js"></script>
+<script src="/remote-configs/8bitdo-sfc30-player1-remote-config.js"></script>
+<script src="/remote-configs/8bitdo-sfc30-player2-remote-config.js"></script>
+<script src="/remote-configs/keyboard-remote-config.js"></script>
+<script src="/remote-configs/logitech-r400-remote-config.js"></script>
+<script src="/components/remote/remote-component.js"></script>
+<script src="teleprompter-console-page.js"></script>
+<!-- <script>
+
+  const bc = new BroadcastChannel(`COMPONENTS_CHANNEL(default)`)
+
+  var socket = io('http://localhost:9999');
+  socket.on('TWO', function (data) {
+    console.log(data)
+    bc.postMessage(data)
+  });
+
+  bc.addEventListener('message', ({ data: { command, commandArgs } }) => {
+    socket.emit('THREE', { command, commandArgs })
+  })
+
+</script> -->
+
+</body>
+</html>
