@@ -44,32 +44,39 @@ export default {
 
     let editor
     if (editor = atom.workspace.getActiveTextEditor()) {
-      editor.onDidChangeCursorPosition(function ({ newScreenPosition }) {
-        let rowNb = newScreenPosition.row
-        let line = editor.lineTextForBufferRow(rowNb)
 
-        let matches = /\[#([^.,]*)(.*)\]/.exec(line)
-        if (matches != null) {
-          socket.emit('ONE', { command: 'go-to-step', commandArgs: { cursor: matches[1] } })
-          return console.log('FOUND', matches[1])
+      socket.on('FOUR', function ({ command, commandArgs }) {
+
+        console.log(command, commandArgs)
+
+        if (commandArgs == null) {
+          return
         }
 
-        while (!line.match(/=+ /) && rowNb >= 0) {
-          rowNb -= 1
-          line = editor.lineTextForBufferRow(rowNb)
+        if (editor.getPath().endsWith('index.adoc') && commandArgs.slideLineno != null) {
+          editor.setCursorBufferPosition([360, 0])
+          setTimeout(() => {
+            editor.setCursorBufferPosition([commandArgs.slideLineno - 1, 0])
+          }, 5)
         }
 
-        if (line.match(/=+ /)) {
-          rowNb -= 1
-          line = editor.lineTextForBufferRow(rowNb)
-
-          let matches = /\[#([^.,]*)(.*)\]/.exec(line)
-          if (matches != null) {
-            socket.emit('ONE', { command: 'go-to-step', commandArgs: { cursor: matches[1] } })
-            return console.log('FOUND', matches[1])
-          }
+        if (editor.getPath().endsWith('script.adoc') && commandArgs.notesLineno != null) {
+          editor.setCursorBufferPosition([360, 0])
+          setTimeout(() => {
+            editor.setCursorBufferPosition([commandArgs.notesLineno - 1, 0])
+          }, 5)
         }
       })
+
+      // editor.onDidChangeCursorPosition(function ({ newBufferPosition }) {
+      //
+      //   let slideLineno = newBufferPosition.row + 1
+      //
+      //   socket.emit('ONE', {
+      //     command: 'go-to-step',
+      //     commandArgs: { slideLineno },
+      //   })
+      // })
     }
   }
 

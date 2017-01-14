@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/components/notes-viewer/notes-viewer-component.css">
     <link rel="stylesheet" href="teleprompter-console-page.css">
 </head>
-<body data-slide-ratio="16/9">
+<body data-slide-ratio="4/3">
 
 <div class="slideViewer-wrapper" data-shift="0" data-bus="default" data-secret="true">
   <iframe class="slideViewer" src="about:blank"></iframe>
@@ -57,6 +57,10 @@
     console.log(data)
     bc.postMessage(data)
   });
+
+  bc.addEventListener('message', ({ data: { command, commandArgs } }) => {
+    socket.emit('THREE', { command, commandArgs })
+  })
 
 </script> -->
 

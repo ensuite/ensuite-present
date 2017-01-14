@@ -60,7 +60,52 @@
           details = eventData.details
           flattenSteps = flatten(details.steps)
           notesBody.innerHTML = transformNotesToHtml(flattenSteps)
-          goToStep({ cursor: (initCursor || (flattenSteps[0].cursor)) })
+
+          // const notesBlocks = Array.from(notesBody.children)
+          // const notesRatios = notesBlocks.map(() => 0)
+
+          // let lastSent
+          // wrapper.onscroll = function () {
+          //   console.log('foo')
+          //   const tops = notesBlocks.map((b) => b.getBoundingClientRect().top)
+          //   const firstIdx = tops.findIndex((top) => top > 0) - 1
+          //   if (notesBlocks[firstIdx] != null && notesBlocks[firstIdx].dataset != null) {
+          //     // console.log('componentsChannel.postMessage', notesBlocks[firstIdx].dataset.slideIdx)
+          //
+          //     const newSent = notesBlocks[firstIdx].dataset.slideIdx
+          //     if (lastSent === newSent) {
+          //       return
+          //     }
+          //
+          //     lastSent = newSent
+          //
+          //     // goToStep({ cursor: newSent })
+          //     componentsChannel.postMessage({
+          //       command: 'go-to-step',
+          //       commandArgs: { cursor: newSent },
+          //     })
+          //   }
+          // }
+
+          // const io = new IntersectionObserver((entries) => {
+          //   entries.forEach((entry) => {
+          //     const idx = notesBlocks.indexOf(entry.target)
+          //     notesRatios[idx] = entry.intersectionRatio
+          //   })
+          //
+          //   const firstIdx = notesRatios.findIndex((ratio) => ratio > 0)
+          //   if (notesBlocks[firstIdx] != null && notesBlocks[firstIdx].dataset != null) {
+          //     // console.log('componentsChannel.postMessage', notesBlocks[firstIdx].dataset.slideIdx)
+          //     componentsChannel.postMessage({
+          //       command: 'go-to-step',
+          //       commandArgs: { cursor: notesBlocks[firstIdx].dataset.slideIdx },
+          //     })
+          //   }
+          // }, {})
+
+          // notesBlocks.forEach((block) => io.observe(block))
+
+          goToStep({ cursor: (localStorage.getItem('initCursor') || initCursor || (flattenSteps[0].cursor)) })
           break;
 
         default:
@@ -115,9 +160,9 @@
 
     // hack to keep scroll position on
     function fixScrollPosition() {
-      setTimeout(() => {
-        goToStep({ cursor: lastKnownState.cursor })
-      }, 10)
+      // setTimeout(() => {
+      //   goToStep({ cursor: lastKnownState.cursor })
+      // }, 10)
     }
 
     window.addEventListener('resize', fixScrollPosition)
@@ -128,9 +173,9 @@
         .map(({ cursor, notes }) => {
 
           const blocks = (notes || '').trim()
-            // .split('\n')
-            // .map((line) => `<div class="notes-line">${line}</div>`)
-            // .join('')
+          // .split('\n')
+          // .map((line) => `<div class="notes-line">${line}</div>`)
+          // .join('')
 
           return `<div class="notes-block" data-slide-idx="${cursor}">${blocks}</div>`
         })
@@ -140,6 +185,8 @@
     // "move" is to easily go to current step +1 or -5
     // shift is to...
     function goToStep({ cursor, secret = false, move = 0 }) {
+
+      console.log(cursor)
 
       const stepIndex = flattenSteps.findIndex((step) => step.cursor === cursor)
       const newStepIndex = stepIndex + move

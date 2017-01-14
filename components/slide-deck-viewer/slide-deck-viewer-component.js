@@ -64,7 +64,7 @@
           details = eventData.details
           console.log(details)
           flattenSteps = flatten(details.steps)
-          goToStep({ cursor: (initCursor || (flattenSteps[0].cursor)) })
+          goToStep({ cursor: (localStorage.getItem('initCursor') || initCursor || (flattenSteps[0].cursor)) })
           componentsChannel.postMessage({ event, eventData })
           break;
 
@@ -149,9 +149,17 @@
 
     // "move" is to easily go to current step +1 or -5
     // shift is to...
-    function goToStep({ cursor, secret = false, move = 0 }) {
+    function goToStep({ cursor, slideLineno, secret = false, move = 0 }) {
 
-      const stepIndex = flattenSteps.findIndex((step) => step.cursor === cursor)
+      let stepIndex = flattenSteps.findIndex((step) => step.cursor === cursor)
+
+      // if (slideLineno != null) {
+      //   stepIndex = flattenSteps.findIndex((step, i, allSteps) => {
+      //     const nextStep = allSteps[i + 1]
+      //     return (step.slideLineno <= slideLineno) && (slideLineno < nextStep.slideLineno)
+      //   })
+      // }
+
       const newStepIndex = stepIndex + move
       const newStep = flattenSteps[newStepIndex]
 
@@ -161,6 +169,7 @@
       }
 
       lastKnownState.cursor = newStep.cursor
+      localStorage.setItem('initCursor', newStep.cursor)
 
       const shiftedStepIndex = newStepIndex + shift
       const shiftedStep = flattenSteps[shiftedStepIndex]
@@ -177,6 +186,18 @@
       if (secret && !viewerIsSecret) {
         return
       }
+
+      // TEMP
+      // if (cursor != null && shift === 0) {
+      //   componentsChannel.postMessage({
+      //     command: 'go-to-step',
+      //     commandArgs: {
+      //       slideLineno: shiftedStep.slideLineno,
+      //       notesLineno: shiftedStep.notesLineno
+      //     }
+      //   })
+      // }
+      // TEMP
 
       sendCommandToIframe('go-to-step', { cursor: shiftedStep.cursor })
     }

@@ -15,8 +15,10 @@
 
   // setup keyboard shortcuts
 
+  const initCursor = localStorage.getItem('initCursor') || null
+
   const componentsChannel = new BroadcastChannel(`COMPONENTS_CHANNEL(${bus})`)
-  componentsChannel.postMessage({ command:'load-slide-deck', commandArgs: { url: slideDeckUrl } })
+  componentsChannel.postMessage({ command:'load-slide-deck', commandArgs: { url: slideDeckUrl, initCursor } })
 
   componentsChannel.addEventListener('message', ({ data: { command, commandArgs } }) => {
 

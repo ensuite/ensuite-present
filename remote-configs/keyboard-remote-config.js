@@ -73,5 +73,13 @@
       command: 'set-slide-deck-ratio',
       commandArgs: { ratio: '16/9' },
     },
+    'down(F13)': {
+      command: 'toggle-slide-deck-state',
+      commandArgs: { state: 'one', enabled: true },
+    },
+    'up(F13)': {
+      command: 'toggle-slide-deck-state',
+      commandArgs: { state: 'one', enabled: false },
+    },
   }
 })()

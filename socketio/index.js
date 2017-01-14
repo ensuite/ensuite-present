@@ -16,5 +16,11 @@ io.on('connection', function (socket) {
     sockets.forEach((s) => {
       s.emit('TWO', data)
     })
-  });
+  })
+  socket.on('THREE', function (data) {
+    console.log(data)
+    sockets.forEach((s) => {
+      s.emit('FOUR', data)
+    })
+  })
 });
