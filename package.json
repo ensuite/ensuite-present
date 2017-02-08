@@ -1,6 +1,7 @@
 {
   "name": "ensuite-present",
   "version": "0.1.0-pre",
+  "description": "A local Web app that allows an instructor to open and control a slide-deck.",
   "license": "MIT",
   "main": "bin/ensuite-present.js",
   "bin": {

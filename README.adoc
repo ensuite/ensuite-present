@@ -1,19 +1,45 @@
-= WIP presentation tools
+= ensuite-present
 
-This project is a Work In Progress
+_ensuite-present_ is part of the *ensuite* toolbelt dedicated to trainers and speakers.
 
-Run this in a shell :
+== Overview
 
-[source]
-----
-npm install
-npm run
-----
+_ensuite-present_ is a local Web app that allows an instructor to "open" and control a slide-deck.
+It provides a dual screen setup using two browser windows, one for the presentation console that the instructor sees and one for the projector viewport that the class sees.
 
-You'll be able to browse the teleprompter console here (where `http://localhost:8080` is the URL of your slides) :
+A screenshot of the presentation console is shown below.
+The left-hand pane of the presentation console shows the current and next slide.
+The right-hand pane shows the speaker notes, with the notes for the current slide highlighted.
 
-http://localhost:8082/pages/teleprompter-console/teleprompter-console-page.html?slide-deck-url=http://localhost:8080
+image::docs/presentation-console-screenshot.jpg[Screenshot of presentation console]
 
-And the projector page will be available here :
+The projector viewport window shows the current slide fit to the browser window.
+It synchronizes when the instructor advances in the presentation console window.
 
-http://localhost:8082/pages/slide-deck-viewer/slide-deck-viewer-page.html
+== Prerequisite
+
+You need https://nodejs.org[Node] 7.4.0 (and npm){blank}footnoteref:[nvm,We strongly recommend using https://github.com/creationix/nvm[nvm] to manage Node.] in order to install and run _ensuite-present_.
+
+ $ nvm install stable
+
+== Installation
+
+_ensuite-present_ is a CLI tool that you install globally with npm.
+
+ $ npm install -g ensuite-present
+
+== Usage
+
+To run _ensuite-present_ on your machine, you just need to run this command:
+
+ $ prz
+
+You can now visit the presentation console and projector viewport at the following URLs:
+
+ Projector viewport::
+ \http://localhost:4242/pages/slide-deck-viewer/slide-deck-viewer-page.html
+
+ Presentation console::
+ \http://localhost:4242/pages/teleprompter-console/teleprompter-console-page.html?slide-deck-url=http://localhost:4321/my-awesome-slide-deck.html
+
+NOTE: Customize the `slide-deck-url` parameter in the query string to view the slide deck you want.
