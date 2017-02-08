@@ -7,6 +7,10 @@
   "bin": {
     "prz": "bin/ensuite-present.js"
   },
+  "engines": {
+    "node": ">=7.3.0",
+    "npm": ">=3.10.10"
+  },
   "preferGlobal": true,
   "dependencies": {
     "node-static": "^0.7.9"
