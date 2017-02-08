@@ -1,5 +1,7 @@
 {
   "name": "ensuite-present",
+  "version": "0.1.0-pre",
+  "license": "MIT",
   "main": "bin/ensuite-present.js",
   "bin": {
     "prz": "bin/ensuite-present.js"
@@ -7,6 +9,5 @@
   "preferGlobal": true,
   "dependencies": {
     "node-static": "^0.7.9"
-  },
-  "version": "0.1.0-pre"
+  }
 }
