@@ -23,3 +23,9 @@
   padding-left: 2ch;
   text-indent: -2ch;
 }
+
+.notes-line:empty::after {
+  content: '(no notes)';
+  font-style: italic;
+  opacity: 0.5;
+}
