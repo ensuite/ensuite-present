@@ -1,10 +1,10 @@
 = ensuite-present
 
-_ensuite-present_ is part of the *ensuite* toolbelt dedicated to trainers and speakers.
+_ensuite-present_ is part of the *ensuite* toolkit dedicated to trainers and speakers.
 
 == Overview
 
-_ensuite-present_ is a local Web app that allows an instructor to "open" and control a slide-deck.
+_ensuite-present_ is a local web app that allows an instructor to "open" and control a slide-deck.
 It provides a dual screen setup using two browser windows, one for the presentation console that the instructor sees and one for the projector viewport that the class sees.
 
 A screenshot of the presentation console is shown below.
