@@ -10,7 +10,8 @@ const PORT = 4320
 
 process.title = path.basename(__filename, '.js')
 
-const fileServer = new nodeStatic.Server()
+const webRoot = path.resolve(__dirname, '..')
+const fileServer = new nodeStatic.Server(webRoot)
 
 http
   .createServer((request, response) => {
