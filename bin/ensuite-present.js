@@ -6,7 +6,7 @@ const path = require('path')
 const http = require('http')
 const nodeStatic = require('node-static')
 
-const PORT = 4242
+const PORT = 4320
 
 process.title = path.basename(__filename, '.js')
 

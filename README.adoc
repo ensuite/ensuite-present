@@ -37,9 +37,9 @@ To run _ensuite-present_ on your machine, you just need to run this command:
 You can now visit the presentation console and projector viewport at the following URLs:
 
  Projector viewport::
- \http://localhost:4242/pages/slide-deck-viewer/slide-deck-viewer-page.html
+ \http://localhost:4320/pages/slide-deck-viewer/slide-deck-viewer-page.html
 
  Presentation console::
- \http://localhost:4242/pages/teleprompter-console/teleprompter-console-page.html?slide-deck-url=http://localhost:4321/my-awesome-slide-deck.html
+ \http://localhost:4320/pages/teleprompter-console/teleprompter-console-page.html?slide-deck-url=http://localhost:4321/my-awesome-slide-deck.html
 
 NOTE: Customize the `slide-deck-url` parameter in the query string to view the slide deck you want.
