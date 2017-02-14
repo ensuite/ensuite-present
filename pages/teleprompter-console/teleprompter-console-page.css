@@ -52,7 +52,7 @@ body[data-slide-ratio="4/3"] .slideViewer-wrapper.fullscreen {
 .notes-wrapper {
   background-color: #fff;
   bottom: var(--footer-height);
-  font-size: 30px;
+  font-size: 28px;
   left: var(--viewer-width);
   position: absolute;
   right: 0;
