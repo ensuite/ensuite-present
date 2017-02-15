@@ -16,6 +16,14 @@ image::docs/presentation-console-screenshot.jpg[Screenshot of presentation conso
 The projector viewport window shows the current slide fit to the browser window.
 It synchronizes when the instructor advances in the presentation console window.
 
+=== Notes
+
+The notes you see on the left are provided by the slide deck.
+For now, it only works with a custom plugin on bespokejs presentations.
+The notes are extracted from the HTML slides by the plugin and then transmitted from the deck to _ensuite-present_ through a protocol.
+
+This protocol and plugin are still a Work In Progress so specification, documentation and details in general aren't available yet.
+
 == Prerequisite
 
 You need https://nodejs.org[Node] 7.4.0 (and npm){blank}footnoteref:[nvm,We strongly recommend using https://github.com/creationix/nvm[nvm] to manage Node.] in order to install and run _ensuite-present_.
