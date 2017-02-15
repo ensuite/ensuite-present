@@ -15,6 +15,15 @@ const fileServer = new nodeStatic.Server(webRoot)
 
 http
   .createServer((request, response) => {
+
+    const matches = request.url.match(/^\/pages\/(.*?)\/$/)
+
+    // This is a very very very simple router ;-)
+    // /pages/foobar => /pages/foobar/foobar-page.html
+    if (matches != null) {
+      request.url += `${matches[1]}-page.html`
+    }
+
     request
       .addListener('end', () => fileServer.serve(request, response))
       .resume()
