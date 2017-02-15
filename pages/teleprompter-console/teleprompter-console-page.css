@@ -4,9 +4,11 @@ body {
 }
 
 body {
+  --border: 8px;
+  --border-color: black;
   --footer-height: 80px;
   --slide-ratio: calc(16 / 9);
-  --viewer-height: calc(calc(100vh - var(--footer-height)) / 2);
+  --viewer-height: calc(calc(calc(100vh - var(--footer-height)) - var(--border)) / 2);
   --viewer-width: calc(var(--viewer-height) * var(--slide-ratio));
   margin: 0;
   overflow: hidden;
@@ -28,11 +30,14 @@ body[data-slide-ratio="4/3"] {
 }
 
 .slideViewer-wrapper[data-shift="0"] {
+  border-bottom: var(--border) solid var(--border-color);
+  border-right: var(--border) solid var(--border-color);
   top: 0;
 }
 
 .slideViewer-wrapper[data-shift="1"] {
-  top: var(--viewer-height);
+  bottom: var(--footer-height);
+  border-right: var(--border) solid var(--border-color);
 }
 
 .slideViewer-wrapper.fullscreen {
@@ -53,7 +58,7 @@ body[data-slide-ratio="4/3"] .slideViewer-wrapper.fullscreen {
   background-color: #fff;
   bottom: var(--footer-height);
   font-size: 28px;
-  left: var(--viewer-width);
+  left: calc(var(--viewer-width) + var(--border));
   position: absolute;
   right: 0;
   top: 0;
