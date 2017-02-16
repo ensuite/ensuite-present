@@ -1,0 +1,31 @@
+.notes-wrapper {
+  color: #000;
+  font-family: monospace;
+  line-height: 1.6;
+  overflow: auto;
+  word-break: break-word;
+}
+
+.notes-block {
+  padding: 0.5em 1em;
+}
+
+.notes-block.current-block {
+  background-color: #ff9;
+}
+
+.notes-block:not(.current-block):hover {
+  cursor: pointer;
+  box-shadow: inset 0.3em 0 0 0 #a9a9a9;
+}
+
+.notes-line {
+  padding-left: 2ch;
+  text-indent: -2ch;
+}
+
+.notes-line:empty::after {
+  content: '~'; /* VIM style! */
+  font-style: italic;
+  color: #a9a9a9;
+}

@@ -1,3 +1,62 @@
-= WIP presentation tools
+= ensuite-present
 
-This project is a Work In Progress
+_ensuite-present_ is part of the *ensuite* presentation toolkit dedicated to speakers and trainers.
+
+== Overview
+
+_ensuite-present_ is a local web app that allows the presenter to control and cast an HTML slide deck.
+It provides a dual screen setup using two browser windows, one for the presentation console that the instructor sees and one for the projector view that the class sees.
+
+A screenshot of the presentation console is shown below.
+The left-hand pane of the presentation console shows the current and next slide.
+The right-hand pane shows the speaker notes, with the notes for the current slide highlighted.
+
+image::docs/presentation-console-screenshot.jpg[Screenshot of presentation console]
+
+The projector window shows the current slide fit to the browser window.
+It automatically synchronizes with the selected slide in the console when the presenter navigates between slides.
+
+=== Notes
+
+The notes you see on the left are provided by the slide deck.
+For now, it only works with a custom plugin enabled in Bespoke presentations.
+But there's nothing limiting this feature from working with other presentation software.
+The notes are extracted from the HTML slides by a slide deck plugin and transmitted to _ensuite-present_ through a protocol.
+
+This protocol and plugin are still a Work In Progress, so specifications, documentation, and other details aren't yet available.
+
+== Prerequisite
+
+You need https://nodejs.org[Node] 7.4.0 (and npm){blank}footnoteref:[nvm,We strongly recommend using https://github.com/creationix/nvm[nvm] to manage Node.] in order to install and run _ensuite-present_.
+
+ $ nvm install stable
+
+If you've already install the stable version of node using nvm, make sure to switch to it:
+
+ $ nvm use stable
+
+== Installation
+
+_ensuite-present_ provides a CLI tool named `enprez` that we recommend you install globally using npm.
+
+ $ npm install -g ensuite-present
+
+== Usage
+
+First, make sure your presentation is available via a URL.
+If you're viewing a Bespoke presentation locally, that usually entails running `gulp serve` from the presentation directory.
+Open a second terminal window to run _ensuite-present_.
+
+To run _ensuite-present_, simply run the command:
+
+ $ enprez
+
+You can now visit the presentation console and projector viewport at the following URLs:
+
+Projector view::
+\http://localhost:4320/pages/viewer/
+
+Presenter console::
+\http://localhost:4320/pages/console/?slide-deck-url=<slide-deck-url>
+
+NOTE: Customize the `slide-deck-url` parameter in the query string to match the URL of the slide deck you want to control.

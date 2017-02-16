@@ -1,0 +1,37 @@
+.slideViewer-wrapper {
+  background-color: #000;
+  position: relative;
+}
+
+.slideViewer {
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+
+.slideViewer-wrapper.slideViewer-wrapper--loaded .slideViewer {
+}
+
+/* prevents clicks on slide */
+.slideViewer-wrapper:after {
+  background-color: #000;
+  content: ' ';
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  transition: opacity 300ms ease-in-out;
+  width: 100%;
+}
+
+.slideViewer-wrapper.slideViewer-wrapper--loaded:after {
+  opacity: 0;
+}
+
+
+.slideViewer-wrapper.slideViewer-wrapper--loaded.slideViewer-wrapper--overTheEnd:after {
+  opacity: 1;
+}
