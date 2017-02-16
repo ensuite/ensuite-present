@@ -10,7 +10,14 @@ const PORT = 4320
 
 process.title = path.basename(__filename, '.js')
 
-const webRoot = path.resolve(__dirname, '..')
+let webRoot
+try {
+  webRoot = path.dirname(path.dirname(require.resolve('ensuite-present')))
+}
+catch (e) {
+  // used when running script out of project
+  webRoot = path.dirname(__dirname)
+}
 const fileServer = new nodeStatic.Server(webRoot)
 
 http
