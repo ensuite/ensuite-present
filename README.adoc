@@ -53,10 +53,10 @@ To run _ensuite-present_, simply run the command:
 
 You can now visit the presentation console and projector viewport at the following URLs:
 
-Projector viewport::
+Projector view::
 \http://localhost:4320/pages/viewer/
 
-Presentation console::
+Presenter console::
 \http://localhost:4320/pages/console/?slide-deck-url=<slide-deck-url>
 
 NOTE: Customize the `slide-deck-url` parameter in the query string to match the URL of the slide deck you want to control.
