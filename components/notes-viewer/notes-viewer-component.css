@@ -25,7 +25,7 @@
 }
 
 .notes-line:empty::after {
-  content: '(no notes)';
+  content: '~'; /* VIM style! */
   font-style: italic;
-  opacity: 0.5;
+  color: #a9a9a9;
 }
