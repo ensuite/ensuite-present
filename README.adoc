@@ -1,6 +1,6 @@
 = ensuite-present
 
-_ensuite-present_ is part of the *ensuite* toolkit dedicated to trainers and speakers.
+_ensuite-present_ is part of the *ensuite* presentation toolkit dedicated to speakers and trainers.
 
 == Overview
 
