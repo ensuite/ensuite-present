@@ -30,4 +30,5 @@ http.createServer((request, response) => {
       .resume()
   }).listen(PORT)
 
-console.log(`ensuite-present available on http://localhost:${PORT}`)
+console.log(`ensuite-present viewer available at http://localhost:${PORT}/pages/viewer/`)
+console.log(`ensuite-present console available at http://localhost:${PORT}/pages/console/?slide-deck-url=<slide-deck-url>`)
