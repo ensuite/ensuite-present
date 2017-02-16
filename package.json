@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "bin/ensuite-present.js",
   "bin": {
-    "prz": "bin/ensuite-present.js"
+    "enprez": "bin/ensuite-present.js"
   },
   "engines": {
     "node": ">=7.3.0",

@@ -37,7 +37,7 @@ If you've already install the stable version of node using nvm, make sure to swi
 
 == Installation
 
-_ensuite-present_ provides a CLI tool named `prz` that we recommend you install globally using npm.
+_ensuite-present_ provides a CLI tool named `enprez` that we recommend you install globally using npm.
 
  $ npm install -g ensuite-present
 
@@ -49,7 +49,7 @@ Open a second terminal window to run _ensuite-present_.
 
 To run _ensuite-present_, simply run the command:
 
- $ prz
+ $ enprez
 
 You can now visit the presentation console and projector viewport at the following URLs:
 
