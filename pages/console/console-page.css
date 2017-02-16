@@ -4,7 +4,7 @@ body {
 }
 
 body {
-  --border: 8px;
+  --border: 5px;
   --border-color: black;
   --footer-height: 80px;
   --slide-ratio: calc(16 / 9);
