@@ -20,21 +20,14 @@ catch (e) {
 }
 const fileServer = new nodeStatic.Server(webRoot)
 
-http
-  .createServer((request, response) => {
-
-    const matches = request.url.match(/^\/pages\/(.*?)\/$/)
-
-    // This is a very very very simple router ;-)
-    // /pages/foobar => /pages/foobar/foobar-page.html
-    if (matches != null) {
-      request.url += `${matches[1]}-page.html`
-    }
-
+http.createServer((request, response) => {
+    // A quick and dirty router ;-)
+    // /pages/viewer/ => /pages/viewer/viewer-page.html
+    // /pages/console/?slide-deck-url=... => /pages/console/console-page.html?slide-deck-url=...
+    request.url = request.url.replace(/^(\/pages\/)([^\/]+)\/(\?.*)?$/, '$1$2/$2-page.html$3')
     request
       .addListener('end', () => fileServer.serve(request, response))
       .resume()
-  })
-  .listen(PORT)
+  }).listen(PORT)
 
 console.log(`ensuite-present available on http://localhost:${PORT}`)
