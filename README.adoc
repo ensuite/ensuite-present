@@ -4,7 +4,7 @@ _ensuite-present_ is part of the *ensuite* presentation toolkit dedicated to spe
 
 == Overview
 
-_ensuite-present_ is a local web app that allows an instructor to control and cast an HTML slide deck.
+_ensuite-present_ is a local web app that allows the presenter to control and cast an HTML slide deck.
 It provides a dual screen setup using two browser windows, one for the presentation console that the instructor sees and one for the projector view that the class sees.
 
 A screenshot of the presentation console is shown below.
